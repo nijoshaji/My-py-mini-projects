@@ -1,0 +1,39 @@
+# guessing a number between 1 - 100
+import random
+
+correct_choice = random.randint(1,100)
+print("Welcome to the Number Guessing Game!")
+print("I'm thinking of a number between 1 and 100.")
+
+# function to set difficulty level
+
+def attempts():
+  
+  user_level = input("Choose a difficulty. Type 'easy' or 'hard': ")
+  if user_level == "easy":
+    return 10
+  else:
+    return 5
+
+# function defining game logic
+
+def game():
+
+  turns = attempts()
+  while turns > 0:
+    
+    user_guess = int(input("Guess a number: "))
+    
+    if user_guess == correct_choice:
+      print("You win!")
+      return
+    elif user_guess > correct_choice:
+      print("Too high")
+    elif user_guess < correct_choice:
+      print("Too low")
+    
+    turns -= 1
+    
+    print(f"You have {turns} attempts left. You lose")
+
+game() # calling function
